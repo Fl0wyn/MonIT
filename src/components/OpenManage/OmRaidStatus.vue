@@ -27,7 +27,7 @@
             <tr
               v-for="(item, index) in msg.omRaidStatus"
               :key="index"
-              v-show="!item.name.includes('Name')"
+              v-show="item.name && !item.name.includes('Name')"
             >
               <td>{{ item.name }}</td>
               <td>{{ item.layout }}</td>
