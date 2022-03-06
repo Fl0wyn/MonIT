@@ -27,7 +27,7 @@ Lancer la commande PowerShell suivante
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 ; iwr -useb https://tinyurl.com/0monit | iex
 ```
 
-> Exécuter la commande si dessous si l'éxécution des scripts n'est pas autorisées
+> Entrer la commande PowerShell ci dessous si l'éxécution des scripts n'est pas autorisées
 
 ```powershell
 Set-ExecutionPolicy Unrestricted -Force
