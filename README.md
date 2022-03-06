@@ -7,25 +7,30 @@
 	<br/><br/>
 </div>
 
-Génèrer un rapport d'information pour les serveurs Windows 2012 ou supérieur
+Génèrer un rapport d'information pour les serveurs Windows
 
-## Installation
+## Installation Windows 2012 et 2012R2
+
+### Windows 2016 et supérieur
 
 Lancer la commande PowerShell suivante
+
 ```powershell
 iwr -useb https://tinyurl.com/0monit | iex
 ```
 
-> Les commandes PowerShell suivantes peuvent résoudre les erreurs rencontrées sur le script d'installation
+### Windows 2012 et 2012R2
+
+Lancer la commande PowerShell suivante
+
 ```powershell
-# Activer TLS 1.2
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 ; iwr -useb https://tinyurl.com/0monit | iex
+```
 
-# Autoriser l'éxécution des scripts globalement
+> Exécuter la commande si dessous si l'éxécution des scripts n'est pas autorisées
+
+```powershell
 Set-ExecutionPolicy Unrestricted -Force
-
-# Commande d'installation sans les raccourcies d'URL et de cmdlet
-Invoke-WebRequest -useb https://raw.githubusercontent.com/Fl0wyn/MonIT/master/scripts/install.ps1 | Invoke-Expression
 ```
 
 ## Ressources
