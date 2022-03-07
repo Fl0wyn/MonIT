@@ -12,7 +12,18 @@
 # List Disk
 #
 function func_disk {
-    Get-CimInstance -ClassName Win32_LogicalDisk -Filter "DriveType=3" | Select-Object -Property DeviceID, VolumeName, FreeSpace, Size | ConvertTo-Json
+    $CmdDisk = Get-CimInstance -ClassName Win32_LogicalDisk -Filter "DriveType=3" | Select-Object -Property DeviceID, VolumeName, FreeSpace, Size | ConvertTo-Json
+    if ( (Get-CimInstance -ClassName Win32_LogicalDisk -Filter "DriveType=3" | Measure-Object).Count -eq "1") {
+        function buildJson {
+            Write-Output "["
+            $CmdDisk
+            Write-Output "]"
+        }
+        buildJson
+    }
+    else {
+        $CmdDisk
+    }
 }
 
 #
