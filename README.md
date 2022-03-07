@@ -9,7 +9,7 @@
 
 Génèrer un rapport d'information pour les serveurs Windows
 
-## Installation Windows 2012 et 2012R2
+## Installation
 
 ### Windows 2016 et supérieur
 
