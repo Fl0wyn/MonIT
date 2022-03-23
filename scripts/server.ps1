@@ -3,6 +3,8 @@
 ###
 
 $OutFile = "$env:USERPROFILE\Desktop\MonIT-Update.exe"
+$OutTemp = "C:\Windows\Temp\MonIT-Update.exe"
+
 Remove-Item $OutFile -Force -ErrorAction SilentlyContinue 
 
 $VersionLocal = Get-Content .\VERSION
@@ -25,9 +27,11 @@ if ($VersionLocal -ne $VersionGit ) {
     Write-Output "`n Exécuter `"MonIT-Update.exe`" présent sur le bureau"
 
     [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-    Invoke-WebRequest -useb https://github.com/Fl0wyn/MonIT/raw/master/MonIT-Update.exe -OutFile $OutFile
-
-    Start-Sleep 15
+    Invoke-WebRequest -useb https://github.com/Fl0wyn/MonIT/raw/master/MonIT-Update.exe -OutFile $OutTemp
+   
+    Start-Process -FilePath $OutTemp -Wait # -WindowStyle Maximized
+    #Exit 0
+    #Start-Sleep 15
 }
 
 Write-Output "`n Génération du rapport d'information..`n"
