@@ -59,20 +59,26 @@ function func_omDiskStatus {
     if (Get-Command omreport -errorAction SilentlyContinue) {
         omconfig preferences cdvformat delimiter=asterisk | out-null
         $OmReport = omreport storage pdisk controller=0 -fmt cdv | select-string -SimpleMatch "ID*Status" -Context 0, 5000
-        $Parray = convertfrom-csv $OmReport -Delimiter "*"
-        $DiskStatus += "["
-        foreach ($PhysicalDisk in $Parray) {
-            $DiskStatus += "{ `
+
+        if ($OmReport) {
+            $Parray = convertfrom-csv $OmReport -Delimiter "*"
+            $DiskStatus += "["
+            foreach ($PhysicalDisk in $Parray) {
+                $DiskStatus += "{ `
                 `"name`": `"$($PhysicalDisk.Name)`", `
                 `"status`": `"$($PhysicalDisk.Status)`", `
                 `"state`": `"$($PhysicalDisk.State)`", `
                 `"failure`": `"$($PhysicalDisk.'Failure Predicted')`", `
                 `"capacity`": `"$($PhysicalDisk.'Capacity')`"},"
+            }
+            $DiskStatus -replace '.$', ']'
         }
-        $DiskStatus -replace '.$', ']'
-    }
-    else {
-        Write-Output "null"
+        else {
+            Write-Output "null"
+        }
+        else {
+            Write-Output "null"
+        }
     }
 }
 
@@ -83,20 +89,27 @@ function func_omRaidStatus {
     if (Get-Command omreport -errorAction SilentlyContinue) {
         omconfig preferences cdvformat delimiter=asterisk | out-null
         $OmReport = omreport storage vdisk -fmt cdv | select-string -SimpleMatch "ID*Status" -Context 0, 5000
-        $VDarray = convertfrom-csv $OmReport -Delimiter "*"
-        $RAIDStatus += "["
-        foreach ($VirtualDisk in $VDarray) {
-            $RAIDStatus += "{ `
+
+        if ($OmReport) {
+            $VDarray = convertfrom-csv $OmReport -Delimiter "*"
+            $RAIDStatus += "["
+            foreach ($VirtualDisk in $VDarray) {
+                $RAIDStatus += "{ `
                 `"name`": `"$($VirtualDisk.Name)`", `
                 `"layout`": `"$($VirtualDisk.Layout)`", `
                 `"status`": `"$($VirtualDisk.Status)`", `
                 `"state`": `"$($VirtualDisk.State)`", `
                 `"media`": `"$($VirtualDisk.Media)`"},"
+            }
+            $RAIDStatus -replace '.$', ']'
         }
-        $RAIDStatus -replace '.$', ']'
-    }
-    else {
-        Write-Output "null"
+        else {
+            Write-Output "null"
+
+        }
+        else {
+            Write-Output "null"
+        }
     }
 }
 
