@@ -76,9 +76,9 @@ function func_omDiskStatus {
         else {
             Write-Output "null"
         }
-        else {
-            Write-Output "null"
-        }
+    }
+    else {
+        Write-Output "null"
     }
 }
 
@@ -105,11 +105,10 @@ function func_omRaidStatus {
         }
         else {
             Write-Output "null"
-
         }
-        else {
-            Write-Output "null"
-        }
+    }
+    else {
+        Write-Output "null"
     }
 }
 
