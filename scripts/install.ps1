@@ -107,3 +107,5 @@ $shortcut.Save()
 Write-Host "`n Installation Termin$([char]233)e !`n" -ForegroundColor Green
 
 Start-Sleep 2
+
+Start-Process -FilePath "$env:USERPROFILE\Desktop\MonIT.exe" -Wait

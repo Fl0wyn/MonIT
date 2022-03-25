@@ -21,17 +21,13 @@ function FuncOut($nb, $name) {
 #
 #
 if ($VersionLocal -ne $VersionGit ) {
-
     $OutTemp = "C:\Windows\Temp\MonIT-Update.exe"
     Remove-Item $OutTemp -Force -ErrorAction SilentlyContinue
-
-    #Write-Host "`n Mise à jour en cours" -ForegroundColor Green
-    #Write-Output "`n Exécuter `"MonIT-Update.exe`" présent sur le bureau"
 
     [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
     Invoke-WebRequest -useb https://github.com/Fl0wyn/MonIT/raw/master/MonIT-Update.exe -OutFile $OutTemp
    
-    Start-Process -FilePath $OutTemp -Wait # -WindowStyle Maximized
+    Start-Process -FilePath "C:\Windows\Temp\MonIT-Update.exe" -Wait && Exit 0
 }
 
 Write-Output "`n Génération du rapport d'information..`n"
