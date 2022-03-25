@@ -4,7 +4,7 @@
 
 - [ **➕** ] Ajout d'un titre au tableau de la santé du matériel
 - [ **🔧** ] Correction de l'affichage en cas de carte RAID non trouvée dans l'OpenManage
-- [ **❌** ] Suppression de la bare de navigation
+- [ **❌** ] Suppression de la barre de navigation
 
 ---
 
