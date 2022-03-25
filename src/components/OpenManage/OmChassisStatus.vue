@@ -15,12 +15,12 @@
       </div>
       <div v-if="isomChassisStatus">
         <table class="table card-table table-vcenter">
-          <!--           <thead>
+          <thead>
             <tr>
               <th>Statut</th>
               <th>Composant</th>
             </tr>
-          </thead> -->
+          </thead>
           <tbody>
             <tr v-for="(item, index) in msg.omChassisStatus" :key="index">
               <!-- Statut-->
