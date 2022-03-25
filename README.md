@@ -16,7 +16,7 @@ Génèrer un rapport d'information pour les serveurs Windows
 Lancer la commande PowerShell suivante
 
 ```powershell
-iwr -useb https://tinyurl.com/0monit | iex
+iwr -useb https://raw.githubusercontent.com/Fl0wyn/MonIT/master/scripts/install.ps1 | iex
 ```
 
 ### Windows 2012 et 2012R2
@@ -24,7 +24,7 @@ iwr -useb https://tinyurl.com/0monit | iex
 Lancer la commande PowerShell suivante
 
 ```powershell
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 ; iwr -useb https://tinyurl.com/0monit | iex
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 ; iwr -useb https://raw.githubusercontent.com/Fl0wyn/MonIT/master/scripts/install.ps1 | iex
 ```
 
 > Entrer la commande PowerShell ci dessous si l'éxécution des scripts n'est pas autorisées
