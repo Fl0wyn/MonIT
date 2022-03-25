@@ -17,12 +17,6 @@
   fill: #b1b1b1;
 }
 
-#raidBackup,
-#informationNetwork,
-#history {
-  scroll-margin-top: 70px;
-}
-
 .list-group-item {
   background-color: #fff !important;
 }

@@ -1,9 +1,9 @@
 <template>
   <div class="sticky-top">
-    <header
+    <!--     <header
       class="navbar navbar-expand-md navbar-light sticky-top d-print-none"
-    >
-      <!-- <header class="navbar navbar-expand-md navbar-light d-print-none"> -->
+    > -->
+    <header class="navbar navbar-expand-md navbar-light d-print-none">
       <div class="container-xl">
         <h1
           class="
@@ -19,17 +19,16 @@
           />
           MonIT
         </h1>
-        <ul class="navbar-nav">
+        <!--         <ul class="navbar-nav">
           <li v-for="(next, i) in list" :key="i" class="nav-item">
-            <!-- 
-                        :class="['nav-item', { active: i === activeItem }]"
+            :class="['nav-item', { active: i === activeItem }]"
             @click="selectItem(i)"
-           -->
+
             <a class="nav-link" :href="'#' + next.link">
               <span class="nav-link-title">{{ next.title }}</span>
             </a>
           </li>
-        </ul>
+        </ul> -->
       </div>
     </header>
   </div>
@@ -44,7 +43,7 @@ export default {
     },
   }, */
 
-  data: () => ({
+  /*   data: () => ({
     activeItem: null,
 
     list: [
@@ -65,6 +64,6 @@ export default {
         link: "history",
       },
     ],
-  }),
+  }), */
 };
 </script>

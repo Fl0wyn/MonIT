@@ -24,7 +24,6 @@
               />
 
               <OmRaidStatus
-                id="raidBackup"
                 size="col-sm-12 col-lg-6"
                 title="Santé des RAID"
                 :msg="msg"
@@ -64,7 +63,6 @@
               </div>
 
               <Information
-                id="informationNetwork"
                 size="col-sm-12 col-lg-6"
                 title="Information"
                 :msg="msg"
@@ -113,7 +111,6 @@
               </div>
 
               <History
-                id="history"
                 size="col-sm-12"
                 title="Historique de fiabilité"
                 :msg="msg"
