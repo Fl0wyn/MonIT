@@ -13,7 +13,12 @@ if ( -Not $(Test-Path -Path $Folder) ) {
     New-Item -Path "C:\Exploitation" -ItemType "directory" > $null
 }
 
+Stop-Process -Force -Name "MonIT" -ErrorAction SilentlyContinue
+Stop-Process -Force -Name "speedtest" -ErrorAction SilentlyContinue
 Stop-Process -Force -Name "tiny" -ErrorAction SilentlyContinue
+
+Start-Sleep 2
+
 Remove-Item $Folder\MonIT* -Recurse -Force
 
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
