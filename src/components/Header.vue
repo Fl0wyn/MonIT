@@ -3,7 +3,8 @@
     <div class="page-header d-print-none">
       <div class="row align-items-center">
         <div class="col">
-          <div class="page-pretitle">{{ "Semaine : " + weekNumber }}</div>
+          <div>{{ "Semaine : " + weekNumber }}</div>
+          <!-- class="page-pretitle" -->
           <h2>{{ fullDate }}</h2>
         </div>
       </div>
