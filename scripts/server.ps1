@@ -71,7 +71,6 @@ Write-Host -ForegroundColor DarkGreen "`n Terminé !"
 #Start-Process -FilePath "$Folder\tiny.exe" -ArgumentList "`"$(Get-Location)`" $PortWeb"
 Start-Process -FilePath "$Folder\tiny.exe" -ArgumentList "$Folder $PortWeb"
 
-Start-sleep 1
 Start-Process http://localhost:$PortWeb 
 Start-sleep 30
 

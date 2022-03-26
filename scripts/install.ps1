@@ -17,8 +17,6 @@ Stop-Process -Force -Name "MonIT" -ErrorAction SilentlyContinue
 Stop-Process -Force -Name "speedtest" -ErrorAction SilentlyContinue
 Stop-Process -Force -Name "tiny" -ErrorAction SilentlyContinue
 
-Start-Sleep 2
-
 Remove-Item $Folder\MonIT* -Recurse -Force
 
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
@@ -108,7 +106,3 @@ Invoke-WebRequest -useb https://github.com/Fl0wyn/MonIT/raw/master/MonIT.exe -Ou
 #
 #
 Write-Host "`n Installation Termin$([char]233)e !`n" -ForegroundColor Green
-
-Start-Sleep 2
-
-Start-Process -FilePath "$env:USERPROFILE\Desktop\MonIT.exe" -Wait
