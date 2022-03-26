@@ -70,4 +70,5 @@ Start-Process http://localhost:$PortWeb
 Start-sleep 30
 
 Stop-Process -Force -Name "tiny"
-Remove-Item $env:USERPROFILE\Desktop\*_log
+Start-sleep 2
+Remove-Item $env:USERPROFILE\Desktop\*_log -Force -ErrorAction SilentlyContinue
