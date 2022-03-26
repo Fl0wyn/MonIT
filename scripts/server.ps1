@@ -69,4 +69,6 @@ Invoke-Expression -Command "$Folder\tiny.exe $Folder $PortWeb"
 Start-Process http://localhost:$PortWeb 
 Start-sleep 30
 
-Stop-Process -Force -Name "tiny" && Remove-Item -Force $env:USERPROFILE\Desktop\*_log
+Stop-Process -Force -Name "tiny" 
+
+Remove-Item -Force $env:USERPROFILE\Desktop\*_log
