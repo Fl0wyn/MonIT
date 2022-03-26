@@ -64,11 +64,9 @@ function buildAllJson {
 buildAllJson | Out-File "$Folder\data.json"
 
 Write-Host -ForegroundColor DarkGreen "`n Terminé !"
-Start-Process -FilePath "$Folder\tiny.exe" -ArgumentList "$Folder $PortWeb"
+Invoke-Expression -Command "$Folder\tiny.exe $Folder $PortWeb"
 
 Start-Process http://localhost:$PortWeb 
 Start-sleep 30
 
-Stop-Process -Force -Name "tiny"
-Start-sleep 2
-Remove-Item $env:USERPROFILE\Desktop\*_log -Force -ErrorAction SilentlyContinue
+Stop-Process -Force -Name "tiny" && Remove-Item -Force $env:USERPROFILE\Desktop\*_log
