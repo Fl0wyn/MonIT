@@ -2,9 +2,6 @@
 # Server
 ###
 
-#$OutFile = "$env:USERPROFILE\Desktop\MonIT-Update.exe"
-#Remove-Item $OutFile -Force -ErrorAction SilentlyContinue 
-
 $Folder = "C:\Exploitation\MonIT"
 
 $VersionLocal = Get-Content $Folder\VERSION
@@ -67,8 +64,6 @@ function buildAllJson {
 buildAllJson | Out-File "$Folder\data.json"
 
 Write-Host -ForegroundColor DarkGreen "`n Terminé !"
-#.\tiny.exe "$(Get-Location)" $PortWeb
-#Start-Process -FilePath "$Folder\tiny.exe" -ArgumentList "`"$(Get-Location)`" $PortWeb"
 Start-Process -FilePath "$Folder\tiny.exe" -ArgumentList "$Folder $PortWeb"
 
 Start-Process http://localhost:$PortWeb 
