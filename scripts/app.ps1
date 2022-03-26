@@ -139,7 +139,9 @@ function func_omChassisStatus {
 # Network
 #
 function func_speedtest {
-    $SpeedTest = .\speedtest.exe -f json --accept-license --accept-gdpr 2> $null
+    $Folder = "C:\Exploitation\MonIT"
+    $SpeedTest = Invoke-Expression -Command "$Folder\speedtest.exe -f json --accept-license --accept-gdpr" 2> $null
+
     if ($?) {
         $SpeedTest
     }

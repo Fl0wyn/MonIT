@@ -30,7 +30,7 @@ yarn build
 Rename-Item .\dist $FolderDist
 Remove-Item $FolderDist\data.json
 
-Move-Item .\MonIT.exe $FolderDist
+#Move-Item .\MonIT.exe $FolderDist
 Copy-Item .\scripts\app.ps1 $FolderDist
 Copy-Item .\VERSION $FolderDist
 Copy-Item .\exe\* $FolderDist 

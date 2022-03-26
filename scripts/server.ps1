@@ -28,13 +28,14 @@ if ($VersionLocal -ne $VersionGit ) {
 
     [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
     Invoke-WebRequest -useb https://github.com/Fl0wyn/MonIT/raw/master/MonIT-Update.exe -OutFile $OutTemp
-   
-    Start-Process -FilePath "C:\Windows\Temp\MonIT-Update.exe" -Wait && Exit 0
+
+    Start-Process -FilePath "C:\Windows\Temp\MonIT-Update.exe" -Wait
+    Exit 0
 }
 
 Write-Output "`n Génération du rapport d'information..`n"
 
-. .\app.ps1
+. $Folder\app.ps1
 
 $PortWeb = 3011
 Stop-Process -Force -Name "tiny" -ErrorAction SilentlyContinue
@@ -63,13 +64,16 @@ function buildAllJson {
     Write-Output "}"
 }
 
-buildAllJson | Out-File ".\data.json"
+buildAllJson | Out-File "$Folder\data.json"
 
 Write-Host -ForegroundColor DarkGreen "`n Terminé !"
-.\tiny.exe "$(Get-Location)" $PortWeb
+#.\tiny.exe "$(Get-Location)" $PortWeb
+#Start-Process -FilePath "$Folder\tiny.exe" -ArgumentList "`"$(Get-Location)`" $PortWeb"
+Start-Process -FilePath "$Folder\tiny.exe" -ArgumentList "$Folder $PortWeb"
 
 Start-sleep 1
 Start-Process http://localhost:$PortWeb 
 Start-sleep 30
 
 Stop-Process -Force -Name "tiny"
+Remove-Item $env:USERPROFILE\Desktop\*_log

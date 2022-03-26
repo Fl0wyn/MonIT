@@ -93,13 +93,16 @@ Unblock-File $Folder\$name\*
 #
 #
 FuncOut 7 " Cr$([char]233)ation d'un raccourci sur le bureau"
-$SourceFilePath = "$Folder\$name\MonIT.exe"
-$ShortcutPath = "$env:USERPROFILE\Desktop\MonIT.lnk"
-$WScriptObj = New-Object -ComObject ("WScript.Shell")
-$shortcut = $WscriptObj.CreateShortcut($ShortcutPath)
-$shortcut.TargetPath = $SourceFilePath
-$Shortcut.WorkingDirectory = "$Folder\$name"
-$shortcut.Save()
+#$SourceFilePath = "$Folder\$name\MonIT.exe"
+#$ShortcutPath = "$env:USERPROFILE\Desktop\MonIT.lnk"
+#$WScriptObj = New-Object -ComObject ("WScript.Shell")
+#$shortcut = $WscriptObj.CreateShortcut($ShortcutPath)
+#$shortcut.TargetPath = $SourceFilePath
+#$Shortcut.WorkingDirectory = "$Folder\$name"
+#$shortcut.Save()
+
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+Invoke-WebRequest -useb https://github.com/Fl0wyn/MonIT/raw/master/MonIT.exe -OutFile $env:USERPROFILE\Desktop\MonIT.exe
 
 #
 #
@@ -108,4 +111,4 @@ Write-Host "`n Installation Termin$([char]233)e !`n" -ForegroundColor Green
 
 Start-Sleep 2
 
-Start-Process -FilePath "$env:USERPROFILE\Desktop\MonIT" -Wait
+Start-Process -FilePath "$env:USERPROFILE\Desktop\MonIT.exe" -Wait
