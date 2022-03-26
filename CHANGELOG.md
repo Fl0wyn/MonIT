@@ -1,6 +1,6 @@
 ## Change Log
 
-### [1.3] - 25/03/2022
+### [1.3] - 26/03/2022
 
 - [ **➕** ] Ajout d'un titre au tableau de la santé du matériel
 - [ **🔧** ] Correction de l'affichage en cas de carte RAID non trouvée dans l'OpenManage
