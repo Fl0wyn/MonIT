@@ -5,7 +5,9 @@
 #$OutFile = "$env:USERPROFILE\Desktop\MonIT-Update.exe"
 #Remove-Item $OutFile -Force -ErrorAction SilentlyContinue 
 
-$VersionLocal = Get-Content .\VERSION
+$Folder = "C:\Exploitation\MonIT"
+
+$VersionLocal = Get-Content $Folder\VERSION
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 $VersionGit = (Invoke-WebRequest -URI https://raw.githubusercontent.com/Fl0wyn/MonIT/master/VERSION | Format-Wide Content | Out-String).trim()
 

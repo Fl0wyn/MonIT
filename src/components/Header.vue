@@ -4,7 +4,6 @@
       <div class="row align-items-center">
         <div class="col">
           <div>{{ "Semaine : " + weekNumber }}</div>
-          <!-- class="page-pretitle" -->
           <h2>{{ fullDate }}</h2>
         </div>
       </div>
