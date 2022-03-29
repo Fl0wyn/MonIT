@@ -7,13 +7,8 @@
             <li class="list-inline-item">
               MonIT © {{ new Date().getFullYear() }}
             </li>
-            <li
-              class="list-inline-item"
-              v-for="(item, index) in msg.infoGit"
-              :key="index"
-              v-show="item.name.includes('Version local')"
-            >
-              {{ "v" + item.val }}
+            <li class="list-inline-item">
+              {{ "v" + version }}
             </li>
             <li class="list-inline-item">
               <a
@@ -32,8 +27,20 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "Footer",
   props: ["msg"],
+
+  data: () => ({
+    version: "",
+  }),
+
+  mounted() {
+    axios.get("VERSION").then((response) => {
+      this.version = response.data;
+    });
+  },
 };
 </script>

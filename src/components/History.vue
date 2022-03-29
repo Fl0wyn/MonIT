@@ -1,6 +1,6 @@
 <template>
   <div :class="size">
-    <div class="card">
+    <div class="card" style="height: 500px">
       <div class="card-header">
         <svg
           class="icon-title"
@@ -13,26 +13,29 @@
         </svg>
         <span class="card-title mx-2">{{ title }}</span>
       </div>
-      <div class="list-group list-group-flush" v-if="msg.reliability">
-        <div class="card-body">
-          <ul class="list list-timeline">
-            <li v-for="(item, index) in msg.reliability" :key="index">
-              <div class="list-timeline-icon bg-blue-lt">{{ ++index }}</div>
-              <div class="list-timeline-content">
-                <div class="list-timeline-time">
-                  {{ convertDate(item.TimeGenerated) }}
+
+      <div class="card-body card-body-scrollable card-body-scrollable-shadow">
+        <div class="list-group list-group-flush" v-if="msg.reliability">
+          <div class="card-body">
+            <ul class="list list-timeline">
+              <li v-for="(item, index) in msg.reliability" :key="index">
+                <div class="list-timeline-icon bg-blue-lt">{{ ++index }}</div>
+                <div class="list-timeline-content">
+                  <div class="list-timeline-time">
+                    {{ convertDate(item.TimeGenerated) }}
+                  </div>
+                  <p class="list-timeline-title">{{ item.SourceName }}</p>
+                  <p class="text-muted">{{ item.Message }}</p>
                 </div>
-                <p class="list-timeline-title">{{ item.SourceName }}</p>
-                <p class="text-muted">{{ item.Message }}</p>
-              </div>
-            </li>
-          </ul>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-      <div v-else style="border-bottom: 1px solid #e6e7e9">
-        <p class="text-primary font-weight-bold my-4 mx-4">
-          Données non disponibles
-        </p>
+        <div v-else style="border-bottom: 1px solid #e6e7e9">
+          <p class="text-primary font-weight-bold my-4 mx-4">
+            Données non disponibles
+          </p>
+        </div>
       </div>
     </div>
   </div>

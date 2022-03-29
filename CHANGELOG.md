@@ -1,5 +1,13 @@
 ## Change Log
 
+### [1.3] - xx/xx/2022
+
+- [ **🔧** ] Correction de l'affichage de la version
+- [ **➕** ] Ajout d'une barre de défilement sur l'historique
+- [ **🔧** ] Modification de Veeam en Veeam Agent
+
+---
+
 ### [1.2] - 26/03/2022
 
 - [ **➕** ] Ajout d'un titre au tableau de la santé du matériel
@@ -7,8 +15,6 @@
 - [ **🔧** ] Modification du système de mise à jour
 - [ **❌** ] Suppression de la barre de navigation
 - [ **❌** ] Suppression du fond bleu sur les listes
-
----
 
 ### [1.1] - 06/03/2022
 

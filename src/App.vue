@@ -53,7 +53,7 @@
                       :isBackupWSB="isBackupWSB"
                     />
                     <Backup
-                      title="Veeam - Sauvegarde effectuée"
+                      title="Veeam Agent - Sauvegarde effectuée"
                       :time="veeamTime"
                       :msg="veeamMsg"
                       :isBackupVeeam="isBackupVeeam"
