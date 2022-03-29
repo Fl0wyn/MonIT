@@ -1,6 +1,6 @@
 ## Change Log
 
-### [1.3] - xx/xx/2022
+### [1.3] - 29/03/2022
 
 - [ **🔧** ] Correction de l'affichage de la version
 - [ **➕** ] Ajout d'une barre de défilement sur l'historique
