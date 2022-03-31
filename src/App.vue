@@ -7,7 +7,9 @@
         :float-layout="false"
         :enable-download="true"
         :preview-modal="false"
-        :filename="'MonIT' + '_' + (new Date().toLocaleDateString()).replaceAll('/','-')"
+        :filename="
+          'MonIT' + '_' + new Date().toLocaleDateString().replaceAll('/', '-')
+        "
         :pdf-quality="2"
         :manual-pagination="true"
         pdf-format="a4"
@@ -78,7 +80,7 @@
                     </div>
                   </div>
 
-                  <div class="html2pdf__page-break"></div>
+                  <span class="m-0 html2pdf__page-break"></span>
 
                   <Information
                     size="col-sm-12 col-lg-6"
@@ -128,7 +130,7 @@
                     </div>
                   </div>
 
-                  <div class="html2pdf__page-break"></div>
+                  <span class="m-0 html2pdf__page-break"></span>
 
                   <History
                     size="col-sm-12"
@@ -137,7 +139,6 @@
                   />
                 </div>
               </div>
-              <Footer :msg="msg" />
             </div>
           </div>
         </section>
@@ -157,14 +158,12 @@ import OmDiskStatus from "./components/OpenManage/OmDiskStatus";
 import OmRaidStatus from "./components/OpenManage/OmRaidStatus";
 import Backup from "./components/Backup";
 import Disk from "./components/Disk";
-import Footer from "./components/Footer";
 import Header from "./components/Header";
 import History from "./components/History";
 import Information from "./components/Information";
 import Navbar from "./components/Navbar";
 import Network from "./components/Network";
 
-//import components from "@/components";
 import axios from "axios";
 import { convertBandwidth } from "./convert";
 
@@ -178,7 +177,6 @@ export default {
     OmRaidStatus,
     Backup,
     Disk,
-    Footer,
     Header,
     History,
     Information,
@@ -221,9 +219,6 @@ export default {
 
   methods: {
     convertBandwidth,
-    /*    generateReport() {
-      this.$refs.html2Pdf.generatePdf();
-    }, */
     aFarAwayEventHandler() {
       this.$refs.html2Pdf.generatePdf();
     },

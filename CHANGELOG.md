@@ -1,11 +1,15 @@
 ## Change Log
 
+### [1.5] - 31/03/2022
+
+- [ **❌** ] Suppression du footer
+
+---
+
 ### [1.4] - 31/03/2022
 
 - [ **➕** ] Ajout d'un export PDF
 - [ **🔧** ] L'exécutable se lance à la fin d'une mise à jour
-
----
 
 ### [1.3] - 29/03/2022
 
