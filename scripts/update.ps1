@@ -12,3 +12,5 @@ Start-sleep 2
 
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 Invoke-WebRequest -useb https://raw.githubusercontent.com/Fl0wyn/MonIT/master/scripts/install.ps1 | Invoke-Expression
+
+Invoke-Expression -Command "$env:USERPROFILE\Desktop\MonIT.exe"
