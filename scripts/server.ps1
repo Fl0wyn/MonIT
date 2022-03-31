@@ -3,6 +3,7 @@
 ###
 
 $Folder = "C:\Exploitation\MonIT"
+Stop-Process -Force -Name "tiny" -ErrorAction SilentlyContinue
 
 $VersionLocal = Get-Content $Folder\VERSION
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
@@ -33,8 +34,6 @@ if ($VersionLocal -ne $VersionGit ) {
 Write-Output "`n Génération du rapport d'information..`n"
 
 . $Folder\app.ps1
-
-Stop-Process -Force -Name "tiny" -ErrorAction SilentlyContinue
 
 $var_disk = func_disk ; FuncOut 1 "  Liste des disques" ;
 $var_info = func_info ; FuncOut 2 "  Information Système"; 
