@@ -14,4 +14,3 @@ Start-sleep 2
 Invoke-WebRequest -useb https://raw.githubusercontent.com/Fl0wyn/MonIT/master/scripts/install.ps1 | Invoke-Expression
 
 Start-Process -FilePath "$env:USERPROFILE\Desktop\MonIT.exe" -Wait
-Exit 0
