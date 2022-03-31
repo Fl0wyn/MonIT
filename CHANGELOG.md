@@ -1,17 +1,17 @@
 ## Change Log
 
-### [1.4] - 30/03/2022
+### [1.4] - 31/03/2022
 
 - [ **➕** ] Ajout d'un export PDF
 - [ **🔧** ] L'exécutable se lance à la fin d'une mise à jour
+
+---
 
 ### [1.3] - 29/03/2022
 
 - [ **🔧** ] Correction de l'affichage de la version
 - [ **➕** ] Ajout d'une barre de défilement sur l'historique
 - [ **🔧** ] Modification de Veeam en Veeam Agent
-
----
 
 ### [1.2] - 26/03/2022
 

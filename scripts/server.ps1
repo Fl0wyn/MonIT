@@ -67,7 +67,7 @@ Write-Host -ForegroundColor DarkGreen "`n Terminé !"
 Invoke-Expression -Command "$Folder\tiny.exe $Folder $PortWeb"
 
 Start-Process http://localhost:$PortWeb 
-Start-sleep 30
+Start-sleep 60
 
 Stop-Process -Force -Name "tiny" 
 

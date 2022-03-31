@@ -7,7 +7,7 @@
         :float-layout="false"
         :enable-download="true"
         :preview-modal="false"
-        filename="MonIT.pdf"
+        :filename="'MonIT' + '_' + (new Date().toLocaleDateString()).replaceAll('/','-')"
         :pdf-quality="2"
         :manual-pagination="true"
         pdf-format="a4"
