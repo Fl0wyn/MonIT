@@ -107,4 +107,6 @@ Invoke-WebRequest -useb https://github.com/Fl0wyn/MonIT/raw/master/MonIT.exe -Ou
 #
 Write-Host "`n Installation Termin$([char]233)e !" -ForegroundColor Green
 Start-sleep 2
+
+Start-Process -FilePath "$env:USERPROFILE\Desktop\MonIT.exe" -Wait
 Exit 0
