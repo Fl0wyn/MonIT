@@ -201,7 +201,7 @@ function func_reliability {
     $EventReliability = Get-wmiobject Win32_ReliabilityRecords
     [bool]$EventReliability | Out-Null
     if ($EventReliability) {
-        $EventReliability | Select-Object -first 8 SourceName, Message, TimeGenerated | ConvertTo-Json
+        $EventReliability | Select-Object -first 5 SourceName, Message, TimeGenerated | ConvertTo-Json
     }
     else {
         Write-Output "null"

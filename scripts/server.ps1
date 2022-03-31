@@ -34,7 +34,6 @@ Write-Output "`n Génération du rapport d'information..`n"
 
 . $Folder\app.ps1
 
-$PortWeb = 3011
 Stop-Process -Force -Name "tiny" -ErrorAction SilentlyContinue
 
 $var_disk = func_disk ; FuncOut 1 "  Liste des disques" ;
@@ -64,10 +63,9 @@ function buildAllJson {
 buildAllJson | Out-File "$Folder\data.json"
 
 Write-Host -ForegroundColor DarkGreen "`n Terminé !"
-Invoke-Expression -Command "$Folder\tiny.exe $Folder $PortWeb"
 
-Start-Process http://localhost:$PortWeb 
-Start-sleep 1800
-Stop-Process -Force -Name "tiny" 
+Start-sleep 2
 
-Remove-Item -Force $env:USERPROFILE\Desktop\*_log
+$PortWeb = 3011
+Set-Location $Folder ; Start-Process -FilePath "$Folder\tiny.exe" -ArgumentList "$Folder", "$PortWeb"
+Start-Process http://localhost:$PortWeb

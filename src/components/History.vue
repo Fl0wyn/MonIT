@@ -1,6 +1,5 @@
 <template>
   <div :class="size">
-    <!-- <div class="card" style="height: 500px"> -->
     <div class="card">
       <div class="card-header">
         <svg
@@ -15,7 +14,6 @@
         <span class="card-title mx-2">{{ title }}</span>
       </div>
 
-      <!-- <div class="card-body card-body-scrollable card-body-scrollable-shadow"> -->
       <div class="card-body">
         <div class="list-group list-group-flush" v-if="msg.reliability">
           <div class="card-body">
