@@ -68,3 +68,6 @@ Start-sleep 2
 $PortWeb = 3011
 Set-Location $Folder ; Start-Process -FilePath "$Folder\tiny.exe" -ArgumentList "$Folder", "$PortWeb"
 Start-Process http://localhost:$PortWeb
+
+Start-sleep 60
+Stop-Process -Force -Name "tiny" -ErrorAction SilentlyContinue

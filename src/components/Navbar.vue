@@ -29,7 +29,7 @@
             </a>
           </li>
         </ul> -->
-        <button
+<!--         <button
           type="button"
           class="btn btn-primary"
           @click="buttonClickHandler"
@@ -44,7 +44,7 @@
             />
           </svg>
           Exporter
-        </button>
+        </button> -->
       </div>
     </header>
   </div>
@@ -53,11 +53,11 @@
 <script>
 export default {
   name: "Navbar",
-  methods: {
+/*   methods: {
     buttonClickHandler() {
       this.$root.$emit("a-far-away-event");
     },
-  },
+  }, */
 
   /*   methods: {
     selectItem(i) {

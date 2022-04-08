@@ -1,10 +1,15 @@
 ## Change Log
 
+### [1.6] - 08/04/2022
+
+- [ **➕** ] Téléchargement automatique en PDF du résultat
+- [ **🔧** ] Arrêt du serveur Web (tiny.exe) après 1 minutes
+
+---
+
 ### [1.5] - 31/03/2022
 
 - [ **❌** ] Suppression du footer
-
----
 
 ### [1.4] - 31/03/2022
 

@@ -16,7 +16,6 @@ import { DateTime } from "luxon";
 
 export default {
   name: "Header",
-  props: ["msg"],
   data: () => ({
     weekNumber: "",
     fullDate: "",

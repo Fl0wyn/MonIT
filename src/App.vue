@@ -19,7 +19,7 @@
       >
         <section slot="pdf-content">
           <div class="page-wrapper">
-            <Header :msg="msg" />
+            <Header />
             <div class="page-body">
               <div class="container-xl">
                 <div class="row row-deck row-cards">
@@ -219,63 +219,65 @@ export default {
 
   methods: {
     convertBandwidth,
-    aFarAwayEventHandler() {
+    /*     aFarAwayEventHandler() {
       this.$refs.html2Pdf.generatePdf();
-    },
+    }, */
   },
 
   mounted() {
-    this.$root.$on("a-far-away-event", this.aFarAwayEventHandler),
-      axios
-        .get("data.json")
-        .then((response) => {
-          var res = response.data;
-          this.msg = res;
+    //this.$root.$on("a-far-away-event", this.aFarAwayEventHandler),
+    axios
+      .get("data.json")
+      .then((response) => {
+        var res = response.data;
+        this.msg = res;
 
-          res.omDiskStatus != null
-            ? (this.isomDiskStatus = true)
-            : (this.isomDiskStatus = false);
+        this.$refs.html2Pdf.generatePdf();
 
-          res.omRaidStatus != null
-            ? (this.isomRaidStatus = true)
-            : (this.isomRaidStatus = false);
+        res.omDiskStatus != null
+          ? (this.isomDiskStatus = true)
+          : (this.isomDiskStatus = false);
 
-          res.omChassisStatus != null
-            ? (this.isomChassisStatus = true)
-            : (this.isomChassisStatus = false);
+        res.omRaidStatus != null
+          ? (this.isomRaidStatus = true)
+          : (this.isomRaidStatus = false);
 
-          // Network
-          if (res.speedtest != null) {
-            this.ipLan = res.speedtest.interface.internalIp;
-            this.mac = res.speedtest.interface.macAddr;
-            this.ipWan = res.speedtest.interface.externalIp;
-            this.isp = res.speedtest.isp;
-            this.download = res.speedtest.download.bandwidth;
-            this.upload = res.speedtest.upload.bandwidth;
-            this.ping = Math.round(res.speedtest.ping.latency);
-          } else {
-            this.isSpeedTest = false;
-          }
+        res.omChassisStatus != null
+          ? (this.isomChassisStatus = true)
+          : (this.isomChassisStatus = false);
 
-          // Disk
-          if (res.wsb != null) {
-            this.wsbLastTime = res.wsb.LastSuccessfulBackupTime;
-            this.wsbNbVersion = res.wsb.NumberOfVersions;
-          } else {
-            this.isBackupWSB = false;
-          }
-          if (res.veeam != null) {
-            this.veeamMsg = res.veeam.Message;
-            this.veeamTime = res.veeam.TimeWritten;
-          } else {
-            this.isBackupVeeam = false;
-          }
-        })
-        .catch((error) => {
-          console.log(error);
-          this.errored = true;
-          this.errorlog = error;
-        });
+        // Network
+        if (res.speedtest != null) {
+          this.ipLan = res.speedtest.interface.internalIp;
+          this.mac = res.speedtest.interface.macAddr;
+          this.ipWan = res.speedtest.interface.externalIp;
+          this.isp = res.speedtest.isp;
+          this.download = res.speedtest.download.bandwidth;
+          this.upload = res.speedtest.upload.bandwidth;
+          this.ping = Math.round(res.speedtest.ping.latency);
+        } else {
+          this.isSpeedTest = false;
+        }
+
+        // Disk
+        if (res.wsb != null) {
+          this.wsbLastTime = res.wsb.LastSuccessfulBackupTime;
+          this.wsbNbVersion = res.wsb.NumberOfVersions;
+        } else {
+          this.isBackupWSB = false;
+        }
+        if (res.veeam != null) {
+          this.veeamMsg = res.veeam.Message;
+          this.veeamTime = res.veeam.TimeWritten;
+        } else {
+          this.isBackupVeeam = false;
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        this.errored = true;
+        this.errorlog = error;
+      });
   },
 };
 </script>
