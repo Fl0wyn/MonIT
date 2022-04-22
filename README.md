@@ -19,7 +19,7 @@ Génèrer un rapport d'information pour les serveurs Windows
 - Navigateur Web moderne par défault
 - Autoriser l'exécution de scripts PowerShell (`Set-ExecutionPolicy Unrestricted -Force`)
 
-### Lancer la commande PowerShell suivante:
+Lancer la commande PowerShell suivante:
 
 ```powershell
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 ; iwr -useb https://raw.githubusercontent.com/Fl0wyn/MonIT/master/scripts/install.ps1 | iex
@@ -28,6 +28,18 @@ Génèrer un rapport d'information pour les serveurs Windows
 ## Exécution
 
 Lancer l'applcation <img src="src/assets/logo.svg" width="16"/> **MonIT.exe** présent sur le bureau
+
+## Désinstallation
+
+Supprimer l'éxécutable **C:\Windows\Temp\MonIT-Update.exe**
+
+Supprimer le dossier **C:\Exploitation\MonIT** et l'icône sur le bureau
+
+Arrêter le serveur web si le dossier est en cours d'utilisation
+
+```powershell
+Stop-Process -Force -Name "tiny"
+```
 
 ## Ressources
 
