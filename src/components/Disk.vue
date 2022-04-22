@@ -29,7 +29,7 @@
           <div class="row align-items-center">
             <div class="col" style="width: 14rem">
               {{ item.VolumeName }} ({{ item.DeviceID }})
-              <div class="progress my-1">
+              <div class="progress my-1" style="height: 15px">
                 <div
                   class="progress-bar"
                   v-bind:style="{
