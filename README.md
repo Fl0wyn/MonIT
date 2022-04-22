@@ -9,6 +9,8 @@
 
 Génèrer un rapport d'information pour les serveurs Windows
 
+<img src="src/assets/demo.png"/>
+
 ## Installation
 
 ### Windows 2016 et supérieur
