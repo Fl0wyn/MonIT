@@ -219,13 +219,9 @@ export default {
 
   methods: {
     convertBandwidth,
-    /*     aFarAwayEventHandler() {
-      this.$refs.html2Pdf.generatePdf();
-    }, */
   },
 
   mounted() {
-    //this.$root.$on("a-far-away-event", this.aFarAwayEventHandler),
     axios
       .get("data.json")
       .then((response) => {
@@ -259,7 +255,7 @@ export default {
           this.isSpeedTest = false;
         }
 
-        // Disk
+        // Backup
         if (res.wsb != null) {
           this.wsbLastTime = res.wsb.LastSuccessfulBackupTime;
           this.wsbNbVersion = res.wsb.NumberOfVersions;
