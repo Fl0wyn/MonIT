@@ -15,9 +15,9 @@ Génèrer un rapport d'information pour les serveurs Windows
 
 ### Prérequis
 
-- Windows 2012 et supérieur
-- Navigateur Web moderne par défault
-- Autoriser l'exécution de scripts PowerShell (`Set-ExecutionPolicy Unrestricted -Force`)
+- Windows 2012 où supérieur
+- Navigateur web moderne par défault
+- Autoriser l'exécution des scripts PowerShell (`Set-ExecutionPolicy Unrestricted -Force`)
 
 Lancer la commande PowerShell suivante:
 
