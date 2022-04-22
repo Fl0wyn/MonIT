@@ -13,15 +13,7 @@ Génèrer un rapport d'information pour les serveurs Windows
 
 ## Installation
 
-### Windows 2016 et supérieur
-
-Lancer la commande PowerShell suivante
-
-```powershell
-iwr -useb https://raw.githubusercontent.com/Fl0wyn/MonIT/master/scripts/install.ps1 | iex
-```
-
-### Windows 2012 et 2012R2
+### Windows 2012 et supérieur
 
 Lancer la commande PowerShell suivante
 
@@ -34,6 +26,10 @@ Lancer la commande PowerShell suivante
 ```powershell
 Set-ExecutionPolicy Unrestricted -Force
 ```
+
+## Exécution
+
+Lancer l'applcation <img src="src/assets/logo.svg" width="16"/> **MonIT.exe** présent sur le bureau
 
 ## Ressources
 
