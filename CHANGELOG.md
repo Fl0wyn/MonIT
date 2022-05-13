@@ -1,11 +1,16 @@
 ## Change Log
 
+### [1.7] - 13/05/2022
+
+- [ **🔧** ] Alignement des icônes et augmentation de la barre des disques
+- [ **🔧** ] Mise à jour des dépendances
+
+---
+
 ### [1.6] - 08/04/2022
 
 - [ **➕** ] Téléchargement automatique en PDF du résultat
 - [ **🔧** ] Arrêt du serveur Web (tiny.exe) après 1 minutes
-
----
 
 ### [1.5] - 31/03/2022
 
