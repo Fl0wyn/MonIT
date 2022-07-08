@@ -1,11 +1,15 @@
 ## Change Log
 
+### [1.8] - 08/07/2022
+
+- [ **🔧** ] Remplacement de "Veeam" par "Veeam Agent"
+
+---
+
 ### [1.7] - 13/05/2022
 
 - [ **🔧** ] Alignement des icônes et augmentation de la barre des disques
 - [ **🔧** ] Mise à jour des dépendances
-
----
 
 ### [1.6] - 08/04/2022
 

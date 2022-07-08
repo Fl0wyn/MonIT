@@ -17,7 +17,7 @@
   </div>
   <div v-else style="border-bottom: 1px solid #e6e7e9">
     <p class="text-primary font-weight-bold my-4 mx-4">
-      {{ title.split(" ")[0] + " - Données non disponibles" }}
+      {{ title.split("-")[0] + " - Données non disponibles" }}
     </p>
   </div>
 </template>
