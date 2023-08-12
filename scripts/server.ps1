@@ -3,7 +3,6 @@
 ###
 
 $Folder = "C:\Exploitation\MonIT"
-Stop-Process -Force -Name "tiny" -ErrorAction SilentlyContinue
 
 $VersionLocal = Get-Content $Folder\VERSION
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
@@ -12,23 +11,23 @@ $VersionGit = (Invoke-WebRequest -URI https://raw.githubusercontent.com/Fl0wyn/M
 Write-Host "`n MonIT - v$VersionLocal (https://github.com/Fl0wyn/MonIT)" -ForegroundColor Yellow
 
 function FuncOut($nb, $name) {
-    $Total = 9
-    Write-Host " [$nb/$Total]" -ForegroundColor DarkGreen -NoNewline
-    Write-Host $name
+  $Total = 9
+  Write-Host " [$nb/$Total]" -ForegroundColor DarkGreen -NoNewline
+  Write-Host $name
 }
 
 #
 #
 #
 if ($VersionLocal -ne $VersionGit ) {
-    $OutTemp = "C:\Windows\Temp\MonIT-Update.exe"
-    Remove-Item $OutTemp -Force -ErrorAction SilentlyContinue
+  $OutTemp = "C:\Windows\Temp\MonIT-Update.exe"
+  Remove-Item $OutTemp -Force -ErrorAction SilentlyContinue
 
-    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-    Invoke-WebRequest -useb https://github.com/Fl0wyn/MonIT/raw/master/MonIT-Update.exe -OutFile $OutTemp
+  [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+  Invoke-WebRequest -useb https://github.com/Fl0wyn/MonIT/raw/master/MonIT-Update.exe -OutFile $OutTemp
 
-    Start-Process -FilePath "C:\Windows\Temp\MonIT-Update.exe" -Wait
-    Exit 0
+  Start-Process -FilePath "C:\Windows\Temp\MonIT-Update.exe" -Wait
+  Exit 0
 }
 
 Write-Output "`n Génération du rapport d'information..`n"
@@ -46,28 +45,50 @@ $var_reliability = func_reliability ; FuncOut 8 "  Historique de fiabilité";
 $var_speedtest = func_speedtest ; FuncOut 9 "  Information Réseau"
 
 function buildAllJson {
-    Write-Output "{"
-    Write-Output "`"disk`": $var_disk,"
-    Write-Output "`"info`": $var_info,"
-    Write-Output "`"omDiskStatus`": $var_omDiskStatus,"
-    Write-Output "`"omRaidStatus`": $var_omRaidStatus,"
-    Write-Output "`"omChassisStatus`": $var_omChassisStatus,"
-    Write-Output "`"speedtest`": $var_speedtest,"
-    Write-Output "`"wsb`": $var_wsb,"
-    Write-Output "`"veeam`": $var_veeam,"
-    Write-Output "`"reliability`": $var_reliability"
-    Write-Output "}"
+  Write-Output "{"
+  Write-Output "`"disk`": $var_disk,"
+  Write-Output "`"info`": $var_info,"
+  Write-Output "`"omDiskStatus`": $var_omDiskStatus,"
+  Write-Output "`"omRaidStatus`": $var_omRaidStatus,"
+  Write-Output "`"omChassisStatus`": $var_omChassisStatus,"
+  Write-Output "`"speedtest`": $var_speedtest,"
+  Write-Output "`"wsb`": $var_wsb,"
+  Write-Output "`"veeam`": $var_veeam,"
+  Write-Output "`"reliability`": $var_reliability"
+  Write-Output "}"
 }
 
 buildAllJson | Out-File "$Folder\data.json"
 
 Write-Host -ForegroundColor DarkGreen "`n Terminé !"
 
-Start-sleep 2
+# Define the file path
+$filePath = ".\dist\index.html"
 
-$PortWeb = 3011
-Set-Location $Folder ; Start-Process -FilePath "$Folder\tiny.exe" -ArgumentList "$Folder", "$PortWeb"
-Start-Process http://localhost:$PortWeb
+# Read the content of the file
+$fileContent = Get-Content -Path $filePath -Raw
 
-Start-sleep 60
-Stop-Process -Force -Name "tiny" -ErrorAction SilentlyContinue
+# Define the string to find and the path to the JSON file
+$oldString = "`"DATA_APP_HERE`""
+$jsonFilePath = "data.json"
+
+# Read the content of the JSON file
+$newString = Get-Content -Path $jsonFilePath -Raw | ConvertFrom-Json
+
+# Convert the JSON object to a string
+$newString = $newString | ConvertTo-Json
+
+# Replace the string
+$newContent = $fileContent -replace [regex]::Escape($oldString), $newString
+
+# Write the updated content back to the file
+$newContent | Set-Content -Path $filePath
+
+
+# $PortWeb = 3011
+# Set-Location $Folder ; Start-Process -FilePath "$Folder\tiny.exe" -ArgumentList "$Folder", "$PortWeb"
+# Start-Process http://localhost:$PortWeb
+
+# Start-sleep 60
+# Stop-Process -Force -Name "tiny" -ErrorAction SilentlyContinue
+

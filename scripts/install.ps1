@@ -10,7 +10,7 @@
 
 $Folder = "C:\Exploitation"
 if ( -Not $(Test-Path -Path $Folder) ) {
-    New-Item -Path "C:\Exploitation" -ItemType "directory" > $null
+  New-Item -Path "C:\Exploitation" -ItemType "directory" > $null
 }
 
 Stop-Process -Force -Name "MonIT" -ErrorAction SilentlyContinue
@@ -26,7 +26,7 @@ Write-Host "`n MonIT - v$VersionGit (https://github.com/Fl0wyn/MonIT)`n" -Foregr
 
 $Total = 7
 function FuncOut($nb, $name) {
-    Write-Output " [$nb/$Total] $name"
+  Write-Output " [$nb/$Total] $name"
 }
 
 #
@@ -39,7 +39,7 @@ $file = "MonIT.zip"
 $releases = "https://api.github.com/repos/$repo/releases"
 
 $tag = (Invoke-WebRequest -Uri $releases -UseBasicParsing | ConvertFrom-Json)[0].tag_name
-    
+
 $download = "https://github.com/$repo/releases/download/$tag/$file"
 $name = $file.Split(".")[0]
 $zip = "$name-$tag.zip"
@@ -57,13 +57,13 @@ Invoke-WebRequest $download -OutFile $zip
 #
 FuncOut 3 " Extraction des fichiers"
 if (Get-Command Expand-Archive -errorAction SilentlyContinue) {
-    # >= Win 2016
-    Expand-Archive $zip -Force
+  # >= Win 2016
+  Expand-Archive $zip -Force
 }
 else {
-    # = Win 2012
-    [System.Reflection.Assembly]::LoadWithPartialName("System.IO.Compression.FileSystem") | Out-Null
-    [System.IO.Compression.ZipFile]::ExtractToDirectory("$(Get-Location)\$zip", "$(Get-Location)\$dir")
+  # = Win 2012
+  [System.Reflection.Assembly]::LoadWithPartialName("System.IO.Compression.FileSystem") | Out-Null
+  [System.IO.Compression.ZipFile]::ExtractToDirectory("$(Get-Location)\$zip", "$(Get-Location)\$dir")
 }
 
 #
