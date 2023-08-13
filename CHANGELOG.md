@@ -1,10 +1,11 @@
-## Change Log
+## Changelog
 
 ### 2.0 - 11/08/2023
 
-- 🔧 Réécriture complète du code
+- 🔧 Réécriture complète du code (golang + vue3)
 - 🔧 Refonte de l'interface
 - ❌ Suppression du serveur Web (tiny.exe)
+- ❌ Suppression de PS2EXE
 - ➕ Résultat dans un seul fichier HTML
 
 ---

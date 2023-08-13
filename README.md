@@ -1,5 +1,5 @@
 <div align="center">
-	<img src="src/assets/logo.svg" width="96"/>
+	<img src="images/logo.svg" width="96"/>
 	<h1>MonIT</h1>
 	<br/>
 	<img src="https://img.shields.io/badge/version-2.0-informational.svg?style=for-the-badge" />
@@ -8,35 +8,24 @@
 	<br/><br/>
 </div>
 
-Génèrer un rapport d'information pour les serveurs Windows
+Génèrer un rapport d'information pour les serveurs Windows (🇫🇷)
 
-<img src="src/assets/demo.png"/>
+<img src="images/demo.png"/>
 
 ## Installation
 
 ### Prérequis
 
-- Windows 2012 où supérieur
-- Autoriser l'exécution des scripts PowerShell (`Set-ExecutionPolicy Unrestricted -Force`)
-
-Lancer la commande PowerShell suivante :
 
 ```powershell
-iwr -useb https://raw.githubusercontent.com/Fl0wyn/MonIT/master/scripts/install.ps1 | iex
+...
 ```
 
 ## Exécution
 
-Lancer l'applcation <img src="src/assets/logo.svg" width="16"/> **MonIT.exe** présent sur le bureau
+Lancer l'applcation 
 
-## Désinstallation
+<div style="display:flex; align-items:center; gap:.3em">
+	<img src="images/logo.svg" width="24"/> MonIT.exe
+</div>
 
-Supprimer l'éxécutable **C:\Windows\Temp\MonIT-Update.exe**
-
-Supprimer le dossier **C:\Exploitation\MonIT** et l'icône sur le bureau
-
-## Ressources
-
-- [Tabler](https://tabler.io/)
-- [Speedtest CLI](https://www.speedtest.net/fr/apps/cli)
-- [PS2EXE ](https://github.com/MScholtes/PS2EXE)

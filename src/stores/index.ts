@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 
 //const DATA_APP: dataType = 'TEMPLATE_DATA'
-import DATA_APP from '@/data-example.json'
+import DATA_APP from '@/data.json'
 
 import type dataType from '@/stores/types'
 

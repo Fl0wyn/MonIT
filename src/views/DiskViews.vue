@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import Card from '@/components/CardComponent.vue'
+import Empty from '@/components/BadgeEmpty.vue'
 import { useAppStore } from '@/stores/index'
 const data = useAppStore().DATA_APP.disk
 
@@ -14,7 +15,7 @@ const bgColor = (item: any) => {
 
 <template>
   <Card title="📁 Liste des lecteurs">
-    <div class="d-flex flex-wrap gap-4">
+    <div class="d-flex flex-wrap gap-4" v-if="data !== null">
       <div v-for="item in data" style="min-width: 12rem" :key="item.VolumeName">
         {{ item.VolumeName }} ({{ item.DeviceID }})
         <div class="progress my-1" style="height: 15px">
@@ -43,5 +44,6 @@ const bgColor = (item: any) => {
         }}
       </div>
     </div>
+    <Empty v-else />
   </Card>
 </template>

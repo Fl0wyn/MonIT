@@ -42,13 +42,13 @@ type dataType =
         TimeWritten: string
       }
       info: {
-        hostname: { name: string; val: string }
-        os: { name: string; val: string }
-        memory: { name: string; val: string }
-        procesor: { name: string; val: string }
-        manufacturer: { name: string; val: string }
-        serialnumber: { name: string; val: string }
-        lastreboot: { name: string; val: string }
+        hostname: string
+        os: string
+        memory: string
+        cpu: string
+        manufacturer: string
+        serialnumber: string
+        lastreboot: string
       }
       reliability: {
         SourceName: string
