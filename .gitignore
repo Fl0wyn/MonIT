@@ -16,6 +16,7 @@ coverage
 .private
 *.zip
 data.json
+test.json
 
 /cypress/videos/
 /cypress/screenshots/

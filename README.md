@@ -14,18 +14,10 @@ Génèrer un rapport d'information pour les serveurs Windows (🇫🇷)
 
 ## Installation
 
+<img src="images/logo.svg" width="16"/> MonIT.exe
+
 ### Prérequis
 
-
-```powershell
-...
-```
-
-## Exécution
-
-Lancer l'applcation 
-
-<div style="display:flex; align-items:center; gap:.3em">
-	<img src="images/logo.svg" width="24"/> MonIT.exe
-</div>
+- Go 1.21
+- Node 20
 

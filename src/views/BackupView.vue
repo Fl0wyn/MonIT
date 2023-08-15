@@ -1,13 +1,8 @@
 <script lang="ts" setup>
 import Card from '@/components/CardComponent.vue'
 import Empty from '@/components/BadgeEmpty.vue'
-import { useAppStore } from '@/stores/index'
+import { wsb, veeam } from '@/data'
 import { formatDate } from '@/utils'
-
-const data = useAppStore().DATA_APP
-
-const wsb = data.wsb
-const veeam = data.veeam
 </script>
 
 <template>
@@ -32,8 +27,8 @@ const veeam = data.veeam
       <emoji-danger v-if="veeam.Message.includes('Failed')" />
       <div>
         <div class="fw-bold">Veeam</div>
-        <div>{{ formatDate(veeam.TimeWritten.replace(/\D/g, '')) }}</div>
-        <div class="text-muted">{{ veeam.Message.replaceAll('.', ' ') }}</div>
+        <div>{{ formatDate(veeam.TimeWritten) }}</div>
+        <div class="text-muted">{{ veeam.Message }}</div>
       </div>
     </div>
     <Empty v-else />

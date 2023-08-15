@@ -2,9 +2,8 @@
 import Card from '@/components/CardComponent.vue'
 import Table from '@/components/TableComponent.vue'
 import Empty from '@/components/BadgeEmpty.vue'
-import { useAppStore } from '@/stores/index'
+import { omDiskStatus } from '@/data'
 import { convertSize } from '@/utils'
-const data = useAppStore().DATA_APP.omDiskStatus
 
 const thead = [
   { name: 'Disque' },
@@ -16,9 +15,9 @@ const thead = [
 </script>
 
 <template>
-  <Card col="col-md-6" title="💿 Santé des disques">
-    <Table :thead="thead" v-if="data !== null">
-      <tr v-for="item in data" :key="item.name">
+  <Card no-body col="col-md-6" title="💿 Santé des disques">
+    <Table :thead="thead" v-if="omDiskStatus !== null">
+      <tr v-for="item in omDiskStatus" :key="item.name">
         <td>{{ item.name.split(' ')[2] }}</td>
         <!-- Statut-->
         <td>
@@ -46,6 +45,6 @@ const thead = [
         </td>
       </tr>
     </Table>
-    <Empty v-else />
+    <Empty class="p-3" v-else />
   </Card>
 </template>

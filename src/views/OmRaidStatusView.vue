@@ -2,8 +2,7 @@
 import Card from '@/components/CardComponent.vue'
 import Table from '@/components/TableComponent.vue'
 import Empty from '@/components/BadgeEmpty.vue'
-import { useAppStore } from '@/stores/index'
-const data = useAppStore().DATA_APP.omRaidStatus
+import { omRaidStatus } from '@/data'
 
 const thead = [
   { name: 'Nom' },
@@ -14,9 +13,13 @@ const thead = [
 ]
 </script>
 <template>
-  <Card col="col-md-6" title="💽 Santé des RAID" :thead="thead">
-    <Table :thead="thead" v-if="data !== null">
-      <tr v-for="item in data" :key="item.name" v-show="item.name && !item.name.includes('Name')">
+  <Card no-body col="col-md-6" title="💽 Santé des RAID" :thead="thead">
+    <Table :thead="thead" v-if="omRaidStatus !== null">
+      <tr
+        v-for="item in omRaidStatus"
+        :key="item.name"
+        v-show="item.name && !item.name.includes('Name')"
+      >
         <td>{{ item.name }}</td>
         <td>{{ item.layout }}</td>
         <!-- Statut-->
@@ -35,6 +38,6 @@ const thead = [
         <td>{{ item.media }}</td>
       </tr>
     </Table>
-    <Empty v-else />
+    <Empty class="p-3" v-else />
   </Card>
 </template>

@@ -8,12 +8,11 @@ import (
 	"os/exec"
 	"strings"
 
-	"github.com/fatih/color"
 	"github.com/pkg/browser"
 )
 
 const (
-	scriptPath           = "app.ps1"
+	scriptPath           = "script.ps1"
 	htmlFilePath         = "dist/index.html"
 	versionURL           = "https://raw.githubusercontent.com/Fl0wyn/MonIT/master/VERSION"
 	localVersionFilePath = "VERSION"
@@ -68,7 +67,7 @@ func checkGitVersion() error {
 }
 
 func main() {
-	color.Cyan("MonIT")
+	fmt.Println("\033[32mMonIT\033[0m")
 
 	if err := runPowerShellScript(scriptPath); err != nil {
 		fmt.Println("Erreur lors de l'exécution du script PowerShell:", err)

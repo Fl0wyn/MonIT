@@ -1,6 +1,9 @@
 <script setup lang="ts">
-const weekNumber = 32
-const fullDate = 'Dimanche 13 août 2023'
+import { date } from '@/data'
+import { formatDate, getWeek } from '@/utils'
+
+const weekNumber = getWeek(date)
+const fullDate = formatDate(date)
 </script>
 
 <template>
